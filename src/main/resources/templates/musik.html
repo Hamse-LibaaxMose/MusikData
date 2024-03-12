@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Musik data</title>
+        <link rel="stylesheet" href="../static/Styles.css" th:href="@{static/Styles.css}">
+<!--     <link rel="stylesheet" href="../static/css/bmistyles.css" th:href="@{css/bmistyles.css}">-->
+</head>
+<body>
+<table>
+    <thead>
+
+    <tr>
+        <th id="a">
+            Kunstnerens navn
+        </th>
+        <th>
+            Oprindelsesland
+        </th>
+        <th>
+            Genre
+        </th>
+        <th>
+            Albumnavn
+        </th>
+        <th>
+            Varighed
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="musik : ${MusikListe}">
+        <td th:text="${musik.kunstnerens_name}">
+            Isam B
+        </td>
+        <td th:text="${musik.oprindelesLand}">
+        Person
+        </td>
+        <td th:text="${musik.genre}">
+        genre
+        </td>
+
+        <td th:text="${musik.albumNavn}">
+            album-navn
+        </td>
+        <td th:text="${musik.duration}">
+            varighed
+        </td>
+
+
+    </tr>
+
+
+    </tbody>
+
+
+    <!-- iterer over Musik data og laver en række for hvert product -->
+
+
+</table>
+</body>
+</html>
+
