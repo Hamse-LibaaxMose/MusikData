@@ -3,61 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <title>Musik data</title>
-        <link rel="stylesheet" href="../static/Styles.css" th:href="@{static/Styles.css}">
-<!--     <link rel="stylesheet" href="../static/css/bmistyles.css" th:href="@{css/bmistyles.css}">-->
+
+    <!--     <link rel="stylesheet" href="../static/css/bmistyles.css" th:href="@{css/bmistyles.css}">-->
+    <link rel="stylesheet" type="text/css" href="/static/Styles.css" th:href="@{Styles.css}">
 </head>
 <body>
-<table>
-    <thead>
+<div class="content-container">
 
-    <tr>
-        <th id="a">
-            Kunstnerens navn
-        </th>
-        <th>
-            Oprindelsesland
-        </th>
-        <th>
-            Genre
-        </th>
-        <th>
-            Albumnavn
-        </th>
-        <th>
-            Varighed
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="musik : ${MusikListe}">
-        <td th:text="${musik.kunstnerens_name}">
-            Isam B
-        </td>
-        <td th:text="${musik.oprindelesLand}">
-        Person
-        </td>
-        <td th:text="${musik.genre}">
-        genre
-        </td>
+    <table>
+        <thead>
 
-        <td th:text="${musik.albumNavn}">
-            album-navn
-        </td>
-        <td th:text="${musik.duration}">
-            varighed
-        </td>
+        <tr>
+            <th class="a">
+                Kunstnerens navn
+            </th>
+            <th class="a">
+                Oprindelsesland
+            </th>
+            <th class="a">
+                Genre
+            </th>
+            <th class="a">
+                Albumnavn
+            </th>
 
+            <th class="a">
+                Varighed
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--    <tr th:each="musik : ${MusikListe}">-->
+        <!--        <td th:text="${musik.kunstnerens_name}">-->
+        <!--            Isam B-->
+        <!--        </td>-->
+        <!--        <td th:text="${musik.oprindelesLand}">-->
+        <!--        Person-->
+        <!--        </td>-->
+        <!--        <td th:text="${musik.genre}">-->
+        <!--        genre-->
+        <!--        </td>-->
 
-    </tr>
-
-
-    </tbody>
+        <!--        <td th:text="${musik.albumNavn}">-->
+        <!--            album-navn-->
+        <!--        </td>-->
+        <!--        <td th:text="${musik.duration}">-->
+        <!--            varighed-->
+        <!--        </td>-->
 
 
-    <!-- iterer over Musik data og laver en række for hvert product -->
+        <!--    </tr>-->
 
 
-</table>
+        </tbody>
+        <tbody>
+        <tr class="a" th:each="musik : ${MusikListe}">
+            <td class="a" th:text="${musik.kunstnerens_name}">Isam B</td>
+            <td class="a" th:text="${musik.oprindelesLand}">Person</td>
+            <td class="a" th:text="${musik.albumNavn}">album-navn</td>
+            <td class="a" th:text="${musik.album_id}">varighed</td>
+        </tr>
+        </tbody>
+
+
+        <!-- iterer over Musik data og laver en række for hvert product -->
+
+
+    </table>
+    <div class="forms-container">
+
+        <div class="create-form">
+            <h3>
+                Create Album
+            </h3>
+
+            <form action="/saveMusic" method="post">
+                <label for="artist-field">kunstnerens_name:</label>
+                <input id="artist-field" name="kunstnerens_name" type="text">
+
+                <label for="title-field">oprindelesLand:</label>
+                <input id="title-field" name="oprindelesLand" type="text">
+
+                <label for="year-field">genre:</label>
+                <input id="year-field" name="genre" type="text">
+
+                <label for="company-field">albumNavn:</label>
+                <input id="company-field" name="albumNavn" type="text">
+
+                <label for="duration-field">duration:</label>
+                <input id="duration-field" name="duration" type="number">
+
+                <input type="submit" value="Create album">
+
+
+            </form>
+        </div>
+
+
+
+        <div class="create_song_form">
+            <h3>
+            create song
+
+            </h3>
+            <form action="saveSong" method="post">
+                <input name="genre" type="text" placeholder="genre">
+                <input name="duration" type="number" placeholder="duration">
+                <input name="album_id" type="number" placeholder="album_id">
+                <input type="submit" value="Create " placeholder="submit">
+            </form>
+        </div>
+
+        <div class="update-form">
+            <h3>
+                Update
+            </h3>
+
+
+            <form action="/update" method="post">
+                <label for="artist-field">Primary_Key:</label>
+                <input id="PK_upt_artist-field" name="PRIMARY_KEY" type="text" placeholder="kunstnerens_name">
+
+
+                <label for="artist-field">kunstnerens_name:</label>
+                <input id="upt_artist-field" name="kunstnerens_name" type="text">
+
+                <label for="title-field">oprindelesLand:</label>
+                <input id="upt_title-field" name="oprindelesLand" type="text">
+
+                <label for="year-field">genre:</label>
+                <input id="upt_year-field" name="genre" type="text">
+
+                <label for="company-field">albumNavn:</label>
+                <input id="upt_company-field" name="albumNavn" type="text">
+
+                <label for="duration-field">duration:</label>
+                <input id="upt_duration-field" name="duration" type="number">
+
+                <input type="submit" value="Create album">
+
+
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="delete">
+    <h3>
+        DELETE
+
+    </h3>
+
+        <form action="/delete" method="get">
+            <input type="submit" value="delete album">
+            <label for="delete">Delete </label>
+            <input id="delete" name="PRIMARY KEY" type="text">
+
+        </form>
+
+</div>
 </body>
 </html>
 
