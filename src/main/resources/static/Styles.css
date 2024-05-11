@@ -44,4 +44,6 @@ body{
 
 
 
-
+table, th, tr{
+    border: 1px solid
+}

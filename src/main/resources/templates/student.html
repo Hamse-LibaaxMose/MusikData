@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/Styles.css" th:href="@{Styles.css}">
+    <title>Display All Student Demo</title>
+</head>
+<body>
+<h1>First Student Demo</h1>
+<h2>Count of students is <span th:text="${studentAllO.size()}"></span></h2>
+<table>
+    <thead>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Surname
+        </th>
+        <th>
+            Age
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+<!--    <tr>-->
+<!--        <td>Nadim</td>-->
+<!--        <td>Haydar</td>-->
+<!--        <td>18</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Karim</td>-->
+<!--        <td>Bashir</td>-->
+<!--        <td>20</td>-->
+<!--    </tr>-->
+    <tr th:each="std : ${studentAllO}">
+        <td th:text="${std.name}"></td>
+        <td th:text="${std.surname}"></td>
+        <td th:text="${std.age}"></td>
+    </tr>
+    </tbody>
+
+
+    <!-- iterer over Musik data og laver en række for hvert product -->
+
+
+</table>
+</body>
+</html>
